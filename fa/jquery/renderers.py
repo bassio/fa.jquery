@@ -2,7 +2,7 @@
 from simplejson import dumps
 from webhelpers2.html import literal
 from webhelpers2.html.tools import strip_tags
-from webhelpers import text
+from webhelpers2 import text
 from formalchemy import helpers as h
 from formalchemy import types
 from formalchemy import fields
