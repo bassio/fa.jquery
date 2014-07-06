@@ -19,7 +19,7 @@ class TemplateEngine(BaseTemplateEngine):
         options.update(kwargs)
         dirnames = list(dirnames)
         try:
-            from pylons import config
+            from .pylons import config
         except ImportError:
             pass
         else:

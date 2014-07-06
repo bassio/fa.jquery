@@ -47,7 +47,7 @@ class ModelView(Base):
             actions.Option('model_index', content=_('Models index'), value='request.fa_url()'),
           )
 
-        models = sorted([v for v in models.items()])
+        models = sorted([v for v in list(models.items())])
         for name, url in models:
             items.append(actions.Option('%s_listing' % name.lower(), content=name, value='string:%s' % url))
         return items
@@ -65,7 +65,7 @@ class ModelView(Base):
             fields = request.model_class._sa_class_manager
             # FIXME: use id by default but should use pk field
             sidx = params.get('sidx', 'id').decode()
-            if sidx and fields.has_key(sidx):
+            if sidx and sidx in fields:
                 sidx = fields[sidx]
                 sord = params.get('sord', 'asc').decode().lower()
                 if sord in ['asc', 'desc']:
@@ -91,7 +91,7 @@ class ModelView(Base):
         if fs and self.request.POST and 'field' not in self.request.GET:
             flash = utils.Flash()
             if fs.errors:
-                errors = [f.label_text or fs.prettify(f.key) for f in fs.render_fields.values() if f.errors]
+                errors = [f.label_text or fs.prettify(f.key) for f in list(fs.render_fields.values()) if f.errors]
                 flash.error('Field(s) %s have errors' % ','.join(errors))
             else:
                 flash.info('Record saved')
@@ -111,7 +111,7 @@ class ModelView(Base):
 
     def update_grid(self, grid, *args, **kwargs):
         metadatas = ('width', 'align', 'fixed', 'search', 'stype', 'searchoptions')
-        for field in grid.render_fields.values():
+        for field in list(grid.render_fields.values()):
             metadata = dict(search=0, sortable=1, id=field.key, name=field.key)
             searchoptions = dict(sopt=['eq', 'cn'])
             if field.is_relation:

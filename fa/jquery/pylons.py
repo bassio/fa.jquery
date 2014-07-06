@@ -13,7 +13,7 @@ from formalchemy import fatypes
 from routes.util import GenerationException
 get_lang = __import__("pylons").i18n.translation.get_lang
 from simplejson import dumps
-import renderers
+from . import renderers
 import logging
 
 log = logging.getLogger(__name__)
@@ -43,7 +43,7 @@ class _ModelsController(Base):
             collection = session.query(model)
             # FIXME: use id by default but should use pk field
             sidx = params.get('sidx', 'id').decode()
-            if sidx and fields.has_key(sidx):
+            if sidx and sidx in fields:
                 sidx = fields[sidx]
                 sord = params.get('sord', 'asc').decode().lower()
                 if sord in ['asc', 'desc']:
@@ -69,7 +69,7 @@ class _ModelsController(Base):
         if fs and request.POST and 'field' not in request.GET:
             flash = Flash()
             if fs.errors:
-                errors = [f.label() for f in fs.render_fields.values() if f.errors]
+                errors = [f.label() for f in list(fs.render_fields.values()) if f.errors]
                 flash.error('Field(s) %s have errors' % ','.join(errors))
             else:
                 flash.info('Record saved')
@@ -77,7 +77,7 @@ class _ModelsController(Base):
         return html
 
     def update_grid(self, grid, *args, **kwargs):
-        for field in grid.render_fields.values():
+        for field in list(grid.render_fields.values()):
             metadata = dict(search=0)
             searchoptions = dict(sopt=['eq', 'cn'])
             if field.is_relation:

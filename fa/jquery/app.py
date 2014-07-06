@@ -7,7 +7,7 @@ from formalchemy import config
 from fa.jquery.utils import TemplateEngine, Flash
 from fa.jquery.forms import Tabs, Accordion
 import simplejson
-from testing import *
+from .testing import *
 
 engine = config.engine = TemplateEngine()
 

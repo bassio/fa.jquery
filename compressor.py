@@ -43,7 +43,7 @@ def main(args=None):
 
         temp.write(data)
 
-        print '+ %s' % f
+        print('+ %s' % f)
     temp.close()
 
     options = ['-o "%s"' % out_file,
@@ -59,11 +59,11 @@ def main(args=None):
     org_size = os.path.getsize(temp_file)
     new_size = os.path.getsize(out_file)
 
-    print '=> %s' % out_file
-    print 'Original: %.2f kB' % (org_size / 1024.0)
-    print 'Compressed: %.2f kB' % (new_size / 1024.0)
-    print 'Reduction: %.1f%%' % (float(org_size - new_size) / org_size * 100)
-    print ''
+    print('=> %s' % out_file)
+    print('Original: %.2f kB' % (org_size / 1024.0))
+    print('Compressed: %.2f kB' % (new_size / 1024.0))
+    print('Reduction: %.1f%%' % (float(org_size - new_size) / org_size * 100))
+    print('')
 
 if __name__ == '__main__':
     main()

@@ -1,6 +1,6 @@
 registry = dict(version=0)
 def bind():
-    from cPickle import loads as _loads
+    from pickle import loads as _loads
     _lookup_attr = _loads('cchameleon.core.codegen\nlookup_attr\np1\n.')
     _attrs_4358996304 = _loads('(dp1\nVclass\np2\nVfa_model ui-widget-header ui-corner-all\np3\ns.')
     _init_scope = _loads('cchameleon.core.utils\necontext\np1\n.')

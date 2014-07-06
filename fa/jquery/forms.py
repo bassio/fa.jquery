@@ -17,7 +17,7 @@ class MultiFieldSetProperty(property):
 
     def __set__(self, instance, value):
         setattr(instance, self.__name__, value)
-        for fs in instance._fs_dict.values():
+        for fs in list(instance._fs_dict.values()):
             setattr(fs, self.__name__[1:], value)
 
 class MultiFieldSet(object):
@@ -46,7 +46,7 @@ class MultiFieldSet(object):
     """
     template = templates.get_template('/forms/multifieldset.mako')
     def __init__(self, id, *fieldsets, **options):
-        if not isinstance(id, basestring):
+        if not isinstance(id, str):
             raise TypeError('id must be a string. got %r' % (id,))
         self._id = id
         self._fs = []
@@ -66,7 +66,7 @@ class MultiFieldSet(object):
     def jsonify(self):
         fields = []
         for fs in self._fs:
-            for f in fs.render_fields.values():
+            for f in list(fs.render_fields.values()):
                 fields.append((f.key, f.model_value))
         return dict(fields)
 
@@ -84,14 +84,14 @@ class MultiFieldSet(object):
     @property
     def errors(self):
         errors = {}
-        for fs in self._fs_dict.values():
+        for fs in list(self._fs_dict.values()):
             errors.update(fs.errors)
         return errors
 
     @property
     def render_fields(self):
         fields = {}
-        for fs in self._fs_dict.values():
+        for fs in list(self._fs_dict.values()):
             fields.update(fs.render_fields)
         return fields
 
@@ -108,7 +108,7 @@ class MultiFieldSet(object):
         self._fs_dict[id] = fs
 
     def get(self, fs):
-        if isinstance(fs, basestring):
+        if isinstance(fs, str):
             fs = self._fs_dict[fs]
         return fs
 
@@ -143,7 +143,7 @@ class MultiFieldSet(object):
         """Validate fieldsets. If no ids is provided, all fieldsets are
         validate."""
         fieldsets = []
-        ids = ids or self._fs_dict.keys()
+        ids = ids or list(self._fs_dict.keys())
         for id in ids:
             fieldsets.append(self.get(id))
         validated = [fs.validate() for fs in fieldsets]
@@ -154,7 +154,7 @@ class MultiFieldSet(object):
     def sync(self, *ids):
         """Sync fieldsets. If no ids is provided, all fieldsets are
         validate."""
-        ids = ids or self._fs_dict.keys()
+        ids = ids or list(self._fs_dict.keys())
         for id in ids:
             self.get(id).sync()
 
@@ -163,7 +163,7 @@ class MultiFieldSet(object):
         if ids:
             ids = [self.get(id).__name__ for id in ids]
         else:
-            ids = self._fs_dict.keys()
+            ids = list(self._fs_dict.keys())
         for id, title in self._fs:
             if id in ids:
                 fs = self._fs_dict[id]

@@ -1,6 +1,6 @@
 registry = dict(version=0)
 def bind():
-    from cPickle import loads as _loads
+    from pickle import loads as _loads
     _attrs_4369730256 = _loads('(dp1\nVtype\np2\nVtext/css\np3\ns.')
     _lookup_attr = _loads('cchameleon.core.codegen\nlookup_attr\np1\n.')
     _re_amp = _loads("cre\n_compile\np1\n(S'&(?!([A-Za-z]+|#[0-9]+);)'\np2\nI0\ntRp3\n.")
@@ -111,7 +111,7 @@ def bind():
         if _tmp1:
             pass
             'isinstance(%(tmp)s, basestring)'
-            _tmp2 = isinstance(_tmp, basestring)
+            _tmp2 = isinstance(_tmp, str)
             if not _tmp2:
                 pass
                 econtext.update(dict(rcontext=rcontext, _domain=_domain))
@@ -333,7 +333,7 @@ def bind():
         if _tmp1:
             pass
             'isinstance(%(tmp)s, basestring)'
-            _tmp2 = isinstance(_tmp, basestring)
+            _tmp2 = isinstance(_tmp, str)
             if not _tmp2:
                 pass
                 econtext.update(dict(rcontext=rcontext, _domain=_domain))

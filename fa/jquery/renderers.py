@@ -37,16 +37,16 @@ def alias(obj, **alias_kwargs):
     def wrapped(func):
         if hasattr(obj, 'func_name'):
             def wrapper(*args, **kwargs):
-                """Alias for :func:`~fa.jquery.renderers.%s` with preset options %r""" % (obj.func_name, alias_kwargs)
+                """Alias for :func:`~fa.jquery.renderers.%s` with preset options %r""" % (obj.__name__, alias_kwargs)
                 kwargs.update(alias_kwargs)
                 return obj(*args, **kwargs)
-            wrapper.func_name = func.func_name
-            wrapper.func_doc = """Alias for :func:`~fa.jquery.renderers.%s` with preset options %r""" % (obj.func_name, alias_kwargs)
+            wrapper.__name__ = func.__name__
+            wrapper.__doc__ = """Alias for :func:`~fa.jquery.renderers.%s` with preset options %r""" % (obj.__name__, alias_kwargs)
             return wrapper
         else:
             doc = """Alias for :class:`~fa.jquery.renderers.%s` with preset options %r""" % (obj.__name__, alias_kwargs)
             alias_kwargs['__doc__'] = doc
-            return type(func.func_name, (obj,), alias_kwargs)
+            return type(func.__name__, (obj,), alias_kwargs)
     return wrapped
 
 def jQueryFieldRenderer(plugin, show_input=False, tag='div', renderer=fields.TextFieldRenderer,
@@ -461,7 +461,7 @@ def RichTextFieldRenderer(use='tinymce', resources_prefix=None, **jq_options):
         defaults['previewAutoRefresh'] = True
         defaults['previewParserPath'] = url('markup_parser.html?markup=%s' % use)
 
-    for k, v in defaults.items():
+    for k, v in list(defaults.items()):
         if k not in jq_options:
             jq_options[k] = v
 
