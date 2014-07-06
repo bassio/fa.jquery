@@ -5,20 +5,20 @@ from fa.jquery.utils import Slider
 from fa.jquery.utils import url
 
 from fa.jquery.renderers import plugin
-from fa.jquery.renderers import autocomplete
-from fa.jquery.renderers import colorpicker
-from fa.jquery.renderers import date
-from fa.jquery.renderers import datetime
-from fa.jquery.renderers import slider
-from fa.jquery.renderers import selectable
-from fa.jquery.renderers import selectables
-from fa.jquery.renderers import radioset
-from fa.jquery.renderers import checkboxset
-from fa.jquery.renderers import tinymce
-from fa.jquery.renderers import markdown
-from fa.jquery.renderers import textile
-from fa.jquery.renderers import bbcode
-from fa.jquery.renderers import default_renderers
+from fa.jquery.renderers import AutoCompleteFieldRenderer as autocomplete
+from fa.jquery.renderers import ColorPickerFieldRenderer as colorpicker
+from fa.jquery.renderers import DateFieldRenderer as date
+from fa.jquery.renderers import DateTimeFieldRenderer as datetime
+from fa.jquery.renderers import SliderFieldRenderer as slider
+#from fa.jquery.renderers import SelectableFieldRenderer(multiple=False) as selectable
+#from fa.jquery.renderers import SelectableFieldRenderer(multiple=True) as selectables
+#from fa.jquery.renderers import ButtonSetFieldRenderer(multiple=False) as radioset
+#from fa.jquery.renderers import ButtonSetFieldRenderer(multiple=True) as checkboxset
+#from fa.jquery.renderers import RichTextFieldRenderer(use='tinymce') as tinymce
+#from fa.jquery.renderers import RichTextFieldRenderer(use='markdown') as markdown
+#from fa.jquery.renderers import RichTextFieldRenderer(use='textile') as textile
+#from fa.jquery.renderers import RichTextFieldRenderer(use='bbcode') as bbcode
+#from fa.jquery.renderers import default_renderers
 
 from fa.jquery.forms import Tabs
 from fa.jquery.forms import Accordion

@@ -118,6 +118,7 @@ def jQueryFieldRenderer(plugin, show_input=False, tag='div', renderer=fields.Tex
                      jq_options=jq_options,
                      resources_prefix=resources_prefix))
 
+plugin = jQueryFieldRenderer
 
 def AutoCompleteFieldRenderer(url_or_data, renderer=fields.TextFieldRenderer, **jq_options):
     """Use http://docs.jquery.com/UI/Autocomplete:
