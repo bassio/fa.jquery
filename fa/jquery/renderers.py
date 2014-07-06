@@ -12,8 +12,8 @@ from markdown import markdown as render_markdown
 from fa.jquery import fanstatic_resources
 
 
-from utils import templates
-from utils import url
+from fa.jquery.utils import templates
+from fa.jquery.utils import url
 
 __doc__ = """
 This is the predefined renderers. You can have a look at the :doc:`../demo`.

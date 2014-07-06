@@ -2,10 +2,10 @@
 from fa.jquery import fanstatic_resources
 from js.jqueryui import smoothness
 from webob import Request, Response
-from renderers import templates
+from fa.jquery.renderers import templates
 from formalchemy import config
-from utils import TemplateEngine, Flash
-from forms import Tabs, Accordion
+from fa.jquery.utils import TemplateEngine, Flash
+from fa.jquery.forms import Tabs, Accordion
 import simplejson
 from testing import *
 

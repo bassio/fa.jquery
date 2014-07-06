@@ -2,7 +2,7 @@
 from formalchemy.i18n import get_translator
 from formalchemy.fields import _pk
 from simplejson import dumps
-from utils import templates
+from fa.jquery.utils import templates
 from random import random
 
 class MultiFieldSetProperty(property):
