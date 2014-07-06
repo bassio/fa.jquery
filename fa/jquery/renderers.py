@@ -118,8 +118,6 @@ def jQueryFieldRenderer(plugin, show_input=False, tag='div', renderer=fields.Tex
                      jq_options=jq_options,
                      resources_prefix=resources_prefix))
 
-@alias(jQueryFieldRenderer)
-def plugin(): pass
 
 def AutoCompleteFieldRenderer(url_or_data, renderer=fields.TextFieldRenderer, **jq_options):
     """Use http://docs.jquery.com/UI/Autocomplete:
@@ -145,8 +143,6 @@ def AutoCompleteFieldRenderer(url_or_data, renderer=fields.TextFieldRenderer, **
     jq_options.update(source=url_or_data, show_input=False)
     return jQueryFieldRenderer('autocomplete', renderer=renderer, **jq_options)
 
-@alias(AutoCompleteFieldRenderer)
-def autocomplete(): pass
 
 def SortableTokenTextFieldRenderer(sep=';', show_input=False, **jq_options):
     """Sortable token using http://jqueryui.com/demos/sortable/:
@@ -184,8 +180,6 @@ def SortableTokenTextFieldRenderer(sep=';', show_input=False, **jq_options):
             return literal(self.template.render(**kwargs))
     return Renderer
 
-@alias(SortableTokenTextFieldRenderer)
-def sortable_token(): pass
 
 def ColorPickerFieldRenderer(colors=[], **jq_options):
     """Color Picker using http://www.syronex.com/software/jquery-color-picker:
@@ -221,8 +215,6 @@ def ColorPickerFieldRenderer(colors=[], **jq_options):
             return h.literal('<div style="background:%s;">%s</div>' % (v, v))
     return jQueryFieldRenderer('colorpicker', renderer=Renderer, resources=[fanstatic_resources.colorpicker], **jq_options)
 
-@alias(ColorPickerFieldRenderer)
-def colorpicker(): pass
 
 class DateFieldRenderer(fields.DateFieldRenderer):
     """Use http://jqueryui.com/demos/datepicker/:
@@ -259,8 +251,6 @@ class DateFieldRenderer(fields.DateFieldRenderer):
         value = self.params.getone(self.name) or ''
         return value
 
-@alias(DateFieldRenderer)
-def date(): pass
 
 class DateTimeFieldRenderer(DateFieldRenderer, fields.TimeFieldRenderer):
     """Use http://jqueryui.com/demos/datepicker/"""
@@ -278,8 +268,6 @@ class DateTimeFieldRenderer(DateFieldRenderer, fields.TimeFieldRenderer):
         else:
             return ''
 
-@alias(DateTimeFieldRenderer)
-def datetime(): pass
 
 def SliderFieldRenderer(min=0, max=100, show_value=True, **jq_options):
     """Fill an integer field using http://jqueryui.com/demos/slider/:
@@ -292,8 +280,6 @@ def SliderFieldRenderer(min=0, max=100, show_value=True, **jq_options):
     jq_options.update(min=min, max=max, show_value=show_value)
     return jQueryFieldRenderer('slider', renderer=fields.IntegerFieldRenderer, **jq_options)
 
-@alias(SliderFieldRenderer)
-def slider(): pass
 
 def SelectableFieldRenderer(multiple=False, **jq_options):
     """Fill a list field using http://jqueryui.com/demos/selectable/:
@@ -325,11 +311,6 @@ def SelectableFieldRenderer(multiple=False, **jq_options):
                                renderer=type('SelectableFieldRenderer', (Renderer,), dict(multiple=multiple)),
                                **jq_options)
 
-@alias(SelectableFieldRenderer, multiple=False)
-def selectable():pass
-
-@alias(SelectableFieldRenderer, multiple=True)
-def selectables():pass
 
 def ButtonSetFieldRenderer(multiple=False, **jq_options):
     """Fill a list field using http://jqueryui.com/demos/button/:
@@ -352,11 +333,6 @@ def ButtonSetFieldRenderer(multiple=False, **jq_options):
     Renderer = multiple and fields.CheckBoxSet or fields.RadioSet
     return jQueryFieldRenderer('buttonset', renderer=Renderer, **jq_options)
 
-@alias(ButtonSetFieldRenderer, multiple=False)
-def radioset():pass
-
-@alias(ButtonSetFieldRenderer, multiple=True)
-def checkboxset():pass
 
 def RichTextFieldRenderer(use='tinymce', resources_prefix=None, **jq_options):
     """RichTextFieldRenderer using TinyMCE or MarkitUp!:
@@ -500,18 +476,6 @@ def RichTextFieldRenderer(use='tinymce', resources_prefix=None, **jq_options):
     return jQueryFieldRenderer(plugin_name, show_input=True, renderer=Renderer,
                                **jq_options)
 
-@alias(RichTextFieldRenderer, use='tinymce')
-def tinymce(): pass
-
-@alias(RichTextFieldRenderer, use='textile')
-def textile(): pass
-
-@alias(RichTextFieldRenderer, use='markdown')
-def markdown(): pass
-
-@alias(RichTextFieldRenderer, use='bbcode')
-def bbcode(): pass
-
 def ellipsys(renderer):
     """Update a renderer to remove tags and strip text"""
     renderer = type(renderer)
@@ -523,12 +487,7 @@ def ellipsys(renderer):
     return EllipsysFieldRenderer
 
 default_renderers = {
-    types.Date:date,
-    types.DateTime:datetime,
-    types.HTML: markdown(),
-    types.Slider: slider,
-    types.Color: ColorPickerFieldRenderer,
-    types.Selectable: selectable(),
-    types.Selectables: selectables(),
+    types.Date:DateFieldRenderer,
+    types.DateTime:DateTimeFieldRenderer
 }
 
