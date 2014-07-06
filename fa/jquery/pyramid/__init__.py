@@ -11,7 +11,7 @@ from textile import textile
 from postmarkup import render_bbcode
 
 from webob import Response
-from webhelpers.html import literal
+from webhelpers2.html import literal
 from simplejson import dumps
 
 from js import jqueryui

@@ -5,7 +5,7 @@ from fa.jquery.utils import Flash
 from fa.jquery.fanstatic_resources import fa_admin, fa_jqgrid
 from js import jqueryui
 from js import jqgrid
-from webhelpers.html import literal
+from webhelpers2.html import literal
 from formalchemy.ext.pylons.controller import model_url
 from formalchemy.ext.pylons.controller import request
 from formalchemy import fields

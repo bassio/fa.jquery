@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from simplejson import dumps
-from webhelpers.html import literal
-from webhelpers.html.tools import strip_tags
+from webhelpers2.html import literal
+from webhelpers2.html.tools import strip_tags
 from webhelpers import text
 from formalchemy import helpers as h
 from formalchemy import types

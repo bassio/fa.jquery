@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from formalchemy.templates import TemplateEngine as BaseTemplateEngine
 from formalchemy import types as fatypes
-from webhelpers.html import escape, literal
+from webhelpers2.html import escape, literal
 from mako.lookup import TemplateLookup
 from simplejson import dumps
 from simplejson import load

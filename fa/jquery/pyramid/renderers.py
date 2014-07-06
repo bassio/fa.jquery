@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from formalchemy import fields
 from formalchemy import helpers as h
-from webhelpers.html import literal
+from webhelpers2.html import literal
 from fa.jquery import renderers
 from fa.jquery import fanstatic_resources
 
