@@ -47,9 +47,9 @@ def AutocompleteRelationRenderer(filter_by='id', renderer=fields.IntegerFieldRen
             fanstatic_resources.fa_pyramid_js.need()
             filter_by = self.jq_options.get('filter_by')
             if self.raw_value:
-                label = getattr(self.raw_value, filter_by, u'Not selected')
+                label = getattr(self.raw_value, filter_by, 'Not selected')
             else:
-                label = u''
+                label = ''
 
             html = h.radio_button(self.name, value=self.value, **kwargs)
             html += h.label(label)

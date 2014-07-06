@@ -15,46 +15,46 @@ def bind():
         _translate = econtext.get('_translate')
         _slots = econtext.get('_slots')
         target_language = econtext.get('target_language')
-        u'_init_stream()'
+        '_init_stream()'
         (_out, _write, ) = _init_stream()
-        u'_init_tal()'
+        '_init_tal()'
         (_attributes, repeat, ) = _init_tal()
-        u'_init_default()'
+        '_init_default()'
         _default = _init_default()
-        u'None'
+        'None'
         default = None
-        u'None'
+        'None'
         _domain = None
-        u"main.macros['master']"
+        "main.macros['master']"
         _metal = _lookup_attr(econtext['main'], 'macros')['master']
         def _callback_main(econtext, _repeat, _out=_out, _write=_write, _domain=_domain, **_ignored):
             if _repeat:
                 repeat.update(_repeat)
             attrs = _attrs_4358950800
-            u'models.items()'
-            _write(u'<div>\n      ')
+            'models.items()'
+            _write('<div>\n      ')
             _tmp1 = _lookup_attr(econtext['models'], 'items')()
             item = None
             (_tmp1, _tmp2, ) = repeat.insert('item', _tmp1)
             for item in _tmp1:
                 _tmp2 = (_tmp2 - 1)
                 attrs = _attrs_4358996112
-                u"''"
-                _write(u'<div>\n        ')
+                "''"
+                _write('<div>\n        ')
                 _default.value = default = ''
-                u'item[0]'
+                'item[0]'
                 _content = item[0]
                 attrs = _attrs_4358996304
-                u'item[1]'
-                _write(u'<a class="fa_model ui-widget-header ui-corner-all"')
+                'item[1]'
+                _write('<a class="fa_model ui-widget-header ui-corner-all"')
                 _tmp3 = item[1]
                 if (_tmp3 is _default):
                     _tmp3 = None
                 if ((_tmp3 is not None) and (_tmp3 is not False)):
-                    if (_tmp3.__class__ not in (str, unicode, int, float, )):
-                        _tmp3 = unicode(_translate(_tmp3, domain=_domain, mapping=None, target_language=target_language, default=None))
+                    if (_tmp3.__class__ not in (str, str, int, float, )):
+                        _tmp3 = str(_translate(_tmp3, domain=_domain, mapping=None, target_language=target_language, default=None))
                     else:
-                        if not isinstance(_tmp3, unicode):
+                        if not isinstance(_tmp3, str):
                             _tmp3 = str(_tmp3)
                     if ('&' in _tmp3):
                         if (';' in _tmp3):
@@ -68,11 +68,11 @@ def bind():
                     if ('"' in _tmp3):
                         _tmp3 = _tmp3.replace('"', '&quot;')
                     _write(((' href="' + _tmp3) + '"'))
-                u'_content'
+                '_content'
                 _write('>')
                 _tmp3 = _content
                 _tmp = _tmp3
-                if (_tmp.__class__ not in (str, unicode, int, float, )):
+                if (_tmp.__class__ not in (str, str, int, float, )):
                     try:
                         _tmp = _tmp.__html__
                     except:
@@ -82,7 +82,7 @@ def bind():
                         _write(_tmp)
                         _tmp = None
                 if (_tmp is not None):
-                    if not isinstance(_tmp, unicode):
+                    if not isinstance(_tmp, str):
                         _tmp = str(_tmp)
                     if ('&' in _tmp):
                         if (';' in _tmp):
@@ -94,14 +94,14 @@ def bind():
                     if ('>' in _tmp):
                         _tmp = _tmp.replace('>', '&gt;')
                     _write(_tmp)
-                _write(u'</a>\n      </div>')
+                _write('</a>\n      </div>')
                 if (_tmp2 == 0):
                     break
                 _write(' ')
-            _write(u'\n    </div>\n')
-        u"{'main': _callback_main}"
+            _write('\n    </div>\n')
+        "{'main': _callback_main}"
         _tmp = {'main': _callback_main, }
-        u"main.macros['master']"
+        "main.macros['master']"
         _metal.render(_tmp, _out=_out, _write=_write, _domain=_domain, econtext=econtext)
         return _out.getvalue()
     return render

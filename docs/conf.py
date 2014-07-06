@@ -37,8 +37,8 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
-project = u'fa.jquery'
-copyright = u'Gael Pasgrimaud'
+project = 'fa.jquery'
+copyright = 'Gael Pasgrimaud'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -172,8 +172,8 @@ htmlhelp_basename = 'eggdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'egg.tex', u'\\{\\{egg\\}\\} Documentation',
-   u'Gael Pasgrimaud', 'manual'),
+  ('index', 'egg.tex', '\\{\\{egg\\}\\} Documentation',
+   'Gael Pasgrimaud', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

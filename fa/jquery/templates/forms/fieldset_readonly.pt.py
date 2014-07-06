@@ -18,41 +18,41 @@ def bind():
         _translate = econtext.get('_translate')
         _slots = econtext.get('_slots')
         target_language = econtext.get('target_language')
-        u'_init_stream()'
+        '_init_stream()'
         (_out, _write, ) = _init_stream()
-        u'_init_tal()'
+        '_init_tal()'
         (_attributes, repeat, ) = _init_tal()
-        u'_init_default()'
+        '_init_default()'
         _default = _init_default()
-        u'None'
+        'None'
         default = None
-        u'None'
+        'None'
         _domain = None
         attrs = _attrs_4356363984
-        u'fieldset.render_fields.itervalues()'
-        _write(u'<tbody>\n  ')
+        'fieldset.render_fields.itervalues()'
+        _write('<tbody>\n  ')
         _tmp1 = _lookup_attr(_lookup_attr(econtext['fieldset'], 'render_fields'), 'itervalues')()
         field = None
         (_tmp1, _tmp2, ) = repeat.insert('field', _tmp1)
         for field in _tmp1:
             _tmp2 = (_tmp2 - 1)
-            u'field.requires_label'
-            _write(u'')
+            'field.requires_label'
+            _write('')
             _tmp3 = _lookup_attr(field, 'requires_label')
             if _tmp3:
                 pass
                 attrs = _attrs_4356436944
-                _write(u'<tr>\n      ')
+                _write('<tr>\n      ')
                 attrs = _attrs_4354711824
-                u"''"
-                _write(u'<td class="field_readonly">\n        ')
+                "''"
+                _write('<td class="field_readonly">\n        ')
                 _default.value = default = ''
-                u'field.label_tag()'
+                'field.label_tag()'
                 _content = _lookup_attr(field, 'label_tag')()
-                u'_content'
+                '_content'
                 _tmp3 = _content
                 _tmp = _tmp3
-                if (_tmp.__class__ not in (str, unicode, int, float, )):
+                if (_tmp.__class__ not in (str, str, int, float, )):
                     try:
                         _tmp = _tmp.__html__
                     except:
@@ -62,20 +62,20 @@ def bind():
                         _write(_tmp)
                         _tmp = None
                 if (_tmp is not None):
-                    if not isinstance(_tmp, unicode):
+                    if not isinstance(_tmp, str):
                         _tmp = str(_tmp)
                     _write(_tmp)
-                u"''"
-                _write(u'\n      </td>\n      ')
+                "''"
+                _write('\n      </td>\n      ')
                 _default.value = default = ''
-                u'field.render_readonly()'
+                'field.render_readonly()'
                 _content = _lookup_attr(field, 'render_readonly')()
                 attrs = _attrs_4354712656
-                u'_content'
-                _write(u'<td>')
+                '_content'
+                _write('<td>')
                 _tmp3 = _content
                 _tmp = _tmp3
-                if (_tmp.__class__ not in (str, unicode, int, float, )):
+                if (_tmp.__class__ not in (str, str, int, float, )):
                     try:
                         _tmp = _tmp.__html__
                     except:
@@ -85,40 +85,40 @@ def bind():
                         _write(_tmp)
                         _tmp = None
                 if (_tmp is not None):
-                    if not isinstance(_tmp, unicode):
+                    if not isinstance(_tmp, str):
                         _tmp = str(_tmp)
                     _write(_tmp)
-                _write(u'</td>\n    </tr>')
-            _write(u'\n  ')
+                _write('</td>\n    </tr>')
+            _write('\n  ')
             if (_tmp2 == 0):
                 break
             _write(' ')
-        _write(u'\n  ')
+        _write('\n  ')
         attrs = _attrs_4354693392
-        _write(u'<tr style="display:none">')
+        _write('<tr style="display:none">')
         attrs = _attrs_4354712144
-        _write(u'<td>&nbsp;</td>')
+        _write('<td>&nbsp;</td>')
         attrs = _attrs_4354715280
-        u'fieldset.render_fields.itervalues()'
-        _write(u'<td>\n    ')
+        'fieldset.render_fields.itervalues()'
+        _write('<td>\n    ')
         _tmp1 = _lookup_attr(_lookup_attr(econtext['fieldset'], 'render_fields'), 'itervalues')()
         field = None
         (_tmp1, _tmp2, ) = repeat.insert('field', _tmp1)
         for field in _tmp1:
             _tmp2 = (_tmp2 - 1)
-            u"''"
-            _write(u'')
+            "''"
+            _write('')
             _default.value = default = ''
-            u'not field.requires_label'
+            'not field.requires_label'
             _tmp3 = not _lookup_attr(field, 'requires_label')
             if _tmp3:
                 pass
-                u'field.render_readonly()'
+                'field.render_readonly()'
                 _content = _lookup_attr(field, 'render_readonly')()
-                u'_content'
+                '_content'
                 _tmp3 = _content
                 _tmp = _tmp3
-                if (_tmp.__class__ not in (str, unicode, int, float, )):
+                if (_tmp.__class__ not in (str, str, int, float, )):
                     try:
                         _tmp = _tmp.__html__
                     except:
@@ -128,14 +128,14 @@ def bind():
                         _write(_tmp)
                         _tmp = None
                 if (_tmp is not None):
-                    if not isinstance(_tmp, unicode):
+                    if not isinstance(_tmp, str):
                         _tmp = str(_tmp)
                     _write(_tmp)
-            _write(u'\n    ')
+            _write('\n    ')
             if (_tmp2 == 0):
                 break
             _write(' ')
-        _write(u'\n  </td>\n  </tr>\n</tbody>')
+        _write('\n  </td>\n  </tr>\n</tbody>')
         return _out.getvalue()
     return render
 

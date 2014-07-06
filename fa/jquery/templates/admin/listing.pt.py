@@ -16,27 +16,27 @@ def bind():
         _translate = econtext.get('_translate')
         _slots = econtext.get('_slots')
         target_language = econtext.get('target_language')
-        u'_init_stream()'
+        '_init_stream()'
         (_out, _write, ) = _init_stream()
-        u'_init_tal()'
+        '_init_tal()'
         (_attributes, repeat, ) = _init_tal()
-        u'_init_default()'
+        '_init_default()'
         _default = _init_default()
-        u'None'
+        'None'
         default = None
-        u'None'
+        'None'
         _domain = None
-        u"main.macros['master']"
+        "main.macros['master']"
         _metal = _lookup_attr(econtext['main'], 'macros')['master']
         def _callback_javascript(econtext, _repeat, _out=_out, _write=_write, _domain=_domain, **_ignored):
             if _repeat:
                 repeat.update(_repeat)
             attrs = _attrs_4367930128
-            u"request.registry.settings.get('fa.use_popup') and 'true' or 'false'"
-            _write(u'<script>\n      var USE_POPUP = ')
+            "request.registry.settings.get('fa.use_popup') and 'true' or 'false'"
+            _write('<script>\n      var USE_POPUP = ')
             _tmp1 = ((_lookup_attr(_lookup_attr(_lookup_attr(econtext['request'], 'registry'), 'settings'), 'get')('fa.use_popup') and 'true') or 'false')
             _tmp = _tmp1
-            if (_tmp.__class__ not in (str, unicode, int, float, )):
+            if (_tmp.__class__ not in (str, str, int, float, )):
                 try:
                     _tmp = _tmp.__html__
                 except:
@@ -46,7 +46,7 @@ def bind():
                     _write(_tmp)
                     _tmp = None
             if (_tmp is not None):
-                if not isinstance(_tmp, unicode):
+                if not isinstance(_tmp, str):
                     _tmp = str(_tmp)
                 if ('&' in _tmp):
                     if (';' in _tmp):
@@ -58,22 +58,22 @@ def bind():
                 if ('>' in _tmp):
                     _tmp = _tmp.replace('>', '&gt;')
                 _write(_tmp)
-            _write(u';\n    </script>\n')
+            _write(';\n    </script>\n')
         def _callback_main(econtext, _repeat, _out=_out, _write=_write, _domain=_domain, **_ignored):
             if _repeat:
                 repeat.update(_repeat)
             attrs = _attrs_4327384016
-            u"''"
-            _write(u'<div>\n      ')
+            "''"
+            _write('<div>\n      ')
             _default.value = default = ''
-            u"fs.render(renderer='fa.jquery:templates/forms/jqgrid.pt', request=request)"
+            "fs.render(renderer='fa.jquery:templates/forms/jqgrid.pt', request=request)"
             _content = _lookup_attr(econtext['fs'], 'render')(renderer='fa.jquery:templates/forms/jqgrid.pt', request=econtext['request'])
             attrs = _attrs_4367955536
-            u'_content'
-            _write(u'<div>')
+            '_content'
+            _write('<div>')
             _tmp1 = _content
             _tmp = _tmp1
-            if (_tmp.__class__ not in (str, unicode, int, float, )):
+            if (_tmp.__class__ not in (str, str, int, float, )):
                 try:
                     _tmp = _tmp.__html__
                 except:
@@ -83,20 +83,20 @@ def bind():
                     _write(_tmp)
                     _tmp = None
             if (_tmp is not None):
-                if not isinstance(_tmp, unicode):
+                if not isinstance(_tmp, str):
                     _tmp = str(_tmp)
                 _write(_tmp)
-            u"u'\\n      '"
-            _write(u'</div>\n      ')
-            _default.value = default = u'\n      '
-            u'actions.buttons(request)'
+            "u'\\n      '"
+            _write('</div>\n      ')
+            _default.value = default = '\n      '
+            'actions.buttons(request)'
             _content = _lookup_attr(econtext['actions'], 'buttons')(econtext['request'])
             attrs = _attrs_4367954576
-            u'_content'
-            _write(u'<div class="fa_controls">')
+            '_content'
+            _write('<div class="fa_controls">')
             _tmp1 = _content
             _tmp = _tmp1
-            if (_tmp.__class__ not in (str, unicode, int, float, )):
+            if (_tmp.__class__ not in (str, str, int, float, )):
                 try:
                     _tmp = _tmp.__html__
                 except:
@@ -106,13 +106,13 @@ def bind():
                     _write(_tmp)
                     _tmp = None
             if (_tmp is not None):
-                if not isinstance(_tmp, unicode):
+                if not isinstance(_tmp, str):
                     _tmp = str(_tmp)
                 _write(_tmp)
-            _write(u'</div>\n    </div>\n')
-        u"{'main': _callback_main, 'javascript': _callback_javascript}"
+            _write('</div>\n    </div>\n')
+        "{'main': _callback_main, 'javascript': _callback_javascript}"
         _tmp = {'main': _callback_main, 'javascript': _callback_javascript, }
-        u"main.macros['master']"
+        "main.macros['master']"
         _metal.render(_tmp, _out=_out, _write=_write, _domain=_domain, econtext=econtext)
         return _out.getvalue()
     return render

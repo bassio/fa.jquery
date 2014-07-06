@@ -147,7 +147,7 @@ def markup_parser(request):
         value = markdown.markdown(value)
     elif markup == 'bbcode':
         value = render_bbcode(value)
-    if isinstance(value, unicode):
+    if isinstance(value, str):
         value = value.encode('utf-8')
     resp.body = value
     return resp

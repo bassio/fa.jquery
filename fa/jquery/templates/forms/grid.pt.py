@@ -21,38 +21,38 @@ def bind():
         _translate = econtext.get('_translate')
         _slots = econtext.get('_slots')
         target_language = econtext.get('target_language')
-        u'_init_stream()'
+        '_init_stream()'
         (_out, _write, ) = _init_stream()
-        u'_init_tal()'
+        '_init_tal()'
         (_attributes, repeat, ) = _init_tal()
-        u'_init_default()'
+        '_init_default()'
         _default = _init_default()
-        u'None'
+        'None'
         default = None
-        u'None'
+        'None'
         _domain = None
         attrs = _attrs_4355533264
-        _write(u'<table class="layout-grid">\n')
+        _write('<table class="layout-grid">\n')
         attrs = _attrs_4355533520
-        _write(u'<thead>\n  ')
+        _write('<thead>\n  ')
         attrs = _attrs_4355533648
-        u"''"
-        _write(u'<tr class="ui-widget-header">\n    ')
+        "''"
+        _write('<tr class="ui-widget-header">\n    ')
         _default.value = default = ''
-        u'collection.render_fields.itervalues()'
+        'collection.render_fields.itervalues()'
         _tmp1 = _lookup_attr(_lookup_attr(econtext['collection'], 'render_fields'), 'itervalues')()
         field = None
         (_tmp1, _tmp2, ) = repeat.insert('field', _tmp1)
         for field in _tmp1:
             _tmp2 = (_tmp2 - 1)
-            u'field.label()'
+            'field.label()'
             _content = _lookup_attr(field, 'label')()
             attrs = _attrs_4355503824
-            u'_content'
-            _write(u'<th>')
+            '_content'
+            _write('<th>')
             _tmp3 = _content
             _tmp = _tmp3
-            if (_tmp.__class__ not in (str, unicode, int, float, )):
+            if (_tmp.__class__ not in (str, str, int, float, )):
                 try:
                     _tmp = _tmp.__html__
                 except:
@@ -62,7 +62,7 @@ def bind():
                     _write(_tmp)
                     _tmp = None
             if (_tmp is not None):
-                if not isinstance(_tmp, unicode):
+                if not isinstance(_tmp, str):
                     _tmp = str(_tmp)
                 if ('&' in _tmp):
                     if (';' in _tmp):
@@ -74,35 +74,35 @@ def bind():
                 if ('>' in _tmp):
                     _tmp = _tmp.replace('>', '&gt;')
                 _write(_tmp)
-            _write(u'</th>')
+            _write('</th>')
             if (_tmp2 == 0):
                 break
             _write(' ')
-        _write(u'\n  </tr>\n</thead>\n')
+        _write('\n  </tr>\n</thead>\n')
         attrs = _attrs_4355504080
-        u'collection.rows'
-        _write(u'<tbody>\n  ')
+        'collection.rows'
+        _write('<tbody>\n  ')
         _tmp1 = _lookup_attr(econtext['collection'], 'rows')
         row = None
         (_tmp1, _tmp2, ) = repeat.insert('row', _tmp1)
         for row in _tmp1:
             _tmp2 = (_tmp2 - 1)
-            u'collection._set_active(row)'
-            _write(u'')
+            'collection._set_active(row)'
+            _write('')
             dummy = _lookup_attr(econtext['collection'], '_set_active')(row)
-            u'collection.get_errors(row)'
+            'collection.get_errors(row)'
             row_errors = _lookup_attr(econtext['collection'], 'get_errors')(row)
             attrs = _attrs_4355504144
-            u"ui-widget-${repeat.row.even and 'even' or 'odd'}"
-            _write(u'<tr')
-            _tmp3 = ('%s%s' % (u'ui-widget-', ((_lookup_attr(repeat.row, 'even') and 'even') or 'odd'), ))
+            "ui-widget-${repeat.row.even and 'even' or 'odd'}"
+            _write('<tr')
+            _tmp3 = ('%s%s' % ('ui-widget-', ((_lookup_attr(repeat.row, 'even') and 'even') or 'odd'), ))
             if (_tmp3 is _default):
                 _tmp3 = None
             if ((_tmp3 is not None) and (_tmp3 is not False)):
-                if (_tmp3.__class__ not in (str, unicode, int, float, )):
-                    _tmp3 = unicode(_translate(_tmp3, domain=_domain, mapping=None, target_language=target_language, default=None))
+                if (_tmp3.__class__ not in (str, str, int, float, )):
+                    _tmp3 = str(_translate(_tmp3, domain=_domain, mapping=None, target_language=target_language, default=None))
                 else:
-                    if not isinstance(_tmp3, unicode):
+                    if not isinstance(_tmp3, str):
                         _tmp3 = str(_tmp3)
                 if ('&' in _tmp3):
                     if (';' in _tmp3):
@@ -116,25 +116,25 @@ def bind():
                 if ('"' in _tmp3):
                     _tmp3 = _tmp3.replace('"', '&quot;')
                 _write(((' class="' + _tmp3) + '"'))
-            u'collection.render_fields.itervalues()'
-            _write(u'>\n      ')
+            'collection.render_fields.itervalues()'
+            _write('>\n      ')
             _tmp3 = _lookup_attr(_lookup_attr(econtext['collection'], 'render_fields'), 'itervalues')()
             field = None
             (_tmp3, _tmp4, ) = repeat.insert('field', _tmp3)
             for field in _tmp3:
                 _tmp4 = (_tmp4 - 1)
                 attrs = _attrs_4355531408
-                u"''"
-                _write(u'<td>\n        ')
+                "''"
+                _write('<td>\n        ')
                 _default.value = default = ''
-                u'field.render()'
+                'field.render()'
                 _content = _lookup_attr(field, 'render')()
                 attrs = _attrs_4355533904
-                u'_content'
-                _write(u'<div>')
+                '_content'
+                _write('<div>')
                 _tmp5 = _content
                 _tmp = _tmp5
-                if (_tmp.__class__ not in (str, unicode, int, float, )):
+                if (_tmp.__class__ not in (str, str, int, float, )):
                     try:
                         _tmp = _tmp.__html__
                     except:
@@ -144,22 +144,22 @@ def bind():
                         _write(_tmp)
                         _tmp = None
                 if (_tmp is not None):
-                    if not isinstance(_tmp, unicode):
+                    if not isinstance(_tmp, str):
                         _tmp = str(_tmp)
                     _write(_tmp)
-                u'row_errors.get(field, [])'
-                _write(u'</div>\n        ')
+                'row_errors.get(field, [])'
+                _write('</div>\n        ')
                 _tmp5 = _lookup_attr(row_errors, 'get')(field, [])
                 error = None
                 (_tmp5, _tmp6, ) = repeat.insert('error', _tmp5)
                 for error in _tmp5:
                     _tmp6 = (_tmp6 - 1)
                     attrs = _attrs_4355534032
-                    u'error'
-                    _write(u'<span class="grid_error">')
+                    'error'
+                    _write('<span class="grid_error">')
                     _tmp7 = error
                     _tmp = _tmp7
-                    if (_tmp.__class__ not in (str, unicode, int, float, )):
+                    if (_tmp.__class__ not in (str, str, int, float, )):
                         try:
                             _tmp = _tmp.__html__
                         except:
@@ -169,7 +169,7 @@ def bind():
                             _write(_tmp)
                             _tmp = None
                     if (_tmp is not None):
-                        if not isinstance(_tmp, unicode):
+                        if not isinstance(_tmp, str):
                             _tmp = str(_tmp)
                         if ('&' in _tmp):
                             if (';' in _tmp):
@@ -181,19 +181,19 @@ def bind():
                         if ('>' in _tmp):
                             _tmp = _tmp.replace('>', '&gt;')
                         _write(_tmp)
-                    _write(u'</span>')
+                    _write('</span>')
                     if (_tmp6 == 0):
                         break
                     _write(' ')
-                _write(u'\n      </td>')
+                _write('\n      </td>')
                 if (_tmp4 == 0):
                     break
                 _write(' ')
-            _write(u'\n    </tr>\n  ')
+            _write('\n    </tr>\n  ')
             if (_tmp2 == 0):
                 break
             _write(' ')
-        _write(u'\n</tbody>\n</table>')
+        _write('\n</tbody>\n</table>')
         return _out.getvalue()
     return render
 

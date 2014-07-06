@@ -7,15 +7,15 @@ from fa.jquery.renderers import *
 FieldSet.default_renderers.update(default_renderers)
 
 class ITab1(interface.Interface):
-    title = schema.TextLine(title=u'title')
+    title = schema.TextLine(title='title')
 
 class ITab2(interface.Interface):
-    title = schema.TextLine(title=u'title')
-    description = schema.TextLine(title=u'description')
+    title = schema.TextLine(title='title')
+    description = schema.TextLine(title='description')
 
 class IAccordion(interface.Interface):
-    field1 = schema.TextLine(title=u'field 1')
-    field2 = schema.TextLine(title=u'field 2')
+    field1 = schema.TextLine(title='field 1')
+    field2 = schema.TextLine(title='field 2')
 
 fs1 = FieldSet(ITab1)
 obj1 = fs1.gen_model()
@@ -28,21 +28,21 @@ fs4 = FieldSet(IAccordion)
 fs4.configure(include=[fs4.field2])
 
 class ISample(interface.Interface):
-    title = schema.TextLine(title=u'Autocomplete')
-    ajax = schema.TextLine(title=u'Auto complete with an ajax request')
-    color = schema.TextLine(title=u'Color picker')
-    rich = schema.Text(title=u'TinyMCE')
-    markdown = schema.Text(title=u'Markdown editor using Markitup!. Textile and bbcode format are also supported')
-    radioset = schema.TextLine(title=u'Radio Set')
-    checkboxset = schema.List(title=u'Checkbox Set')
-    selectable = schema.TextLine(title=u'Selectable')
-    selectables = schema.List(title=u'Selectables')
-    sortable = schema.TextLine(title=u'Sortable token',
-                              description=u'Save values as a string separate by a semi comma')
-    slider = schema.Int(title=u'Integer as slider')
-    date = schema.Date(title=u'Date')
-    datetime = schema.Datetime(title=u'Datetime')
-    resources  = schema.TextLine(title=u'Plugin with resources')
+    title = schema.TextLine(title='Autocomplete')
+    ajax = schema.TextLine(title='Auto complete with an ajax request')
+    color = schema.TextLine(title='Color picker')
+    rich = schema.Text(title='TinyMCE')
+    markdown = schema.Text(title='Markdown editor using Markitup!. Textile and bbcode format are also supported')
+    radioset = schema.TextLine(title='Radio Set')
+    checkboxset = schema.List(title='Checkbox Set')
+    selectable = schema.TextLine(title='Selectable')
+    selectables = schema.List(title='Selectables')
+    sortable = schema.TextLine(title='Sortable token',
+                              description='Save values as a string separate by a semi comma')
+    slider = schema.Int(title='Integer as slider')
+    date = schema.Date(title='Date')
+    datetime = schema.Datetime(title='Datetime')
+    resources  = schema.TextLine(title='Plugin with resources')
 
 Form = FieldSet(ISample)
 Form.title.set(renderer=AutoCompleteFieldRenderer(['aa', 'bb']))
